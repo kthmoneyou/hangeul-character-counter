@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2457e6">
+  <meta name="description" content="한글 글자수 세기. 입력하는 즉시 공백 포함·제외 글자수, 단어 수, 줄 수, UTF-8 바이트 수를 확인하세요. 무료, 로그인 없이 바로 사용합니다.">
+  <title>한눈에 글자수 — 한글 글자수 세기</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232457e6'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='40' fill='white'%3E가%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="./" aria-label="한눈에 글자수 홈"><span class="brand-mark" aria-hidden="true">가</span><span>한눈에 <strong>글자수</strong></span></a>
+      <span class="header-note">로그인 없이, 바로.</span>
+    </header>
+    <main>
+      <div class="intro"><div class="eyebrow">한 글자도 놓치지 않게</div><h1>쓰는 순간, <span>몇 글자인지.</span></h1><p>입력하거나 붙여넣으면 글자수를 바로 알려드려요.</p></div>
+      <div class="workspace">
+        <section class="editor" aria-labelledby="editor-title">
+          <div class="editor-toolbar"><label id="editor-title" for="text-input">글 입력</label><div class="actions"><button id="copy" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>복사</button><button id="clear" type="button" disabled>전체 지우기</button></div></div>
+          <textarea id="text-input" spellcheck="false" placeholder="여기에 글을 입력해 보세요.&#10;&#10;자기소개서, 블로그 글, 영상 대본…&#10;어떤 글이든 좋아요." aria-describedby="privacy-note"></textarea>
+          <div class="editor-bottom"><span class="live-label"><span aria-hidden="true"></span>입력 즉시 계산</span><span id="action-status" role="status" aria-live="polite"></span><button id="undo" type="button" hidden>되돌리기</button></div>
+        </section>
+        <aside class="results" aria-label="글자수 결과">
+          <div class="count-card primary"><div class="count-label">공백 포함<span class="pill">전체 글자수</span></div><div class="count-value"><output id="with-spaces" for="text-input">0</output><span>자</span></div><p>띄어쓰기와 줄바꿈까지 모두 포함</p></div>
+          <div class="count-card secondary"><div class="count-label">공백 제외</div><div class="count-value"><output id="without-spaces" for="text-input">0</output><span>자</span></div><p>공백을 뺀 글자만 계산</p></div>
+          <dl class="other-counts"><div><dt>단어</dt><dd><output id="words" for="text-input">0</output><span>개</span></dd></div><div><dt>줄</dt><dd><output id="lines" for="text-input">0</output><span>줄</span></dd></div><div><dt>UTF-8</dt><dd><output id="bytes" for="text-input">0</output><span>byte</span></dd></div></dl>
+          <span class="sr-only" id="count-announcement" role="status" aria-live="polite" aria-atomic="true"></span>
+        </aside>
+      </div>
+      <div class="below-editor"><p id="privacy-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>입력한 글은 서버에 전송하거나 저장하지 않아요.</p><details><summary>어떻게 세나요?</summary><div class="count-help">한글 한 음절(‘가’)은 1자로 계산합니다. 공백 제외에서는 띄어쓰기·탭·줄바꿈을 뺍니다. 이모지와 조합형 한글은 지원 브라우저에서 눈에 보이는 한 글자 단위로 셉니다. 단어는 공백으로 나눈 덩어리, 줄은 Enter로 나눈 줄입니다. UTF-8 바이트는 원문 기준이며 일반적인 한글 한 음절은 3바이트입니다. 제출하는 서비스의 계산 방식에 따라 결과가 다를 수 있습니다. 새로고침하거나 창을 닫으면 입력한 글은 사라집니다.</div></details></div>
+      <noscript><p class="no-script">실시간 글자수 계산을 사용하려면 브라우저의 JavaScript를 켜 주세요.</p></noscript>
+    </main>
+    <footer><span>한눈에 글자수</span><span>글에만 집중하세요.</span></footer>
+  </div>
+</body>
+</html>
