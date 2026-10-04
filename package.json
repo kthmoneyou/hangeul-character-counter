@@ -3,5 +3,5 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "scripts": { "test": "node --test tests/counter.test.js", "start": "python -m http.server 4173 --bind 127.0.0.1" }
+  "scripts": { "test": "node --test tests/counter.test.js", "start": "python -m http.server 8765 --bind 127.0.0.1" }
 }
