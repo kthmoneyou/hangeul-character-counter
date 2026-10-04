@@ -14,7 +14,11 @@ let statusTimer;
 
 function update() {
   const result = countText(input.value);
-  for (const [key, id] of Object.entries(outputs)) document.getElementById(id).textContent = formatter.format(result[key]);
+  for (const [key, id] of Object.entries(outputs)) {
+    const output = document.getElementById(id);
+    output.textContent = formatter.format(result[key]);
+    output.style.setProperty('--digits', Math.max(1, output.textContent.length));
+  }
   copy.disabled = clear.disabled = !input.value;
   clearTimeout(announceTimer);
   announceTimer = setTimeout(() => { announcement.textContent = `공백 포함 ${formatter.format(result.withSpaces)}자, 공백 제외 ${formatter.format(result.withoutSpaces)}자`; }, 450);
